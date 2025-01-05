@@ -1,0 +1,13 @@
+The CSS property `content` is used with the `::before` and `::after` pseudo-elements to insert generated content.  However, if you try to use a variable directly within the `content` property that's not properly defined or escaped, you might encounter unexpected behavior.  For example:
+
+```css
+.my-element::before {
+  content: attr(data-custom-text);
+}
+
+.my-element {
+  data-custom-text: "This is some text!"; /* Incorrect: missing quotes*/
+}
+```
+
+In this case, the browser might not render the text correctly or throw an error because the `data-custom-text` is not properly quoted. Another example involves using variables from CSS custom properties (variables). The `var()` function needs to be used and must be set correctly. Incorrect use can lead to unexpected behavior or empty content.
