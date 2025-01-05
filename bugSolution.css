@@ -1,0 +1,22 @@
+The solution involves ensuring variables used within the `content` property are correctly defined and escaped.  For string values, always use proper quotes. When using CSS variables ensure the `var()` function is correctly used. Example:
+
+```css
+.my-element::before {
+  content: attr(data-custom-text);
+}
+
+.my-element {
+  data-custom-text: "This is some text!"; /* Correct: with quotes*/
+}
+
+/* Or for CSS variables */
+:root {
+  --my-text: "Hello, world!";
+}
+
+.my-element::before {
+  content: var(--my-text);
+}
+```
+
+This corrected code ensures the variables are properly handled, resolving the unexpected behavior or errors previously encountered.
